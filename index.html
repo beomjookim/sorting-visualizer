@@ -14,17 +14,45 @@
 </head>
 
 <body>
+    <header>
+        <div>
+            <!-- button to generate bars -->
+            <button>Generate Bars</button>
+
+            <!-- customize num of bars -->
+            <label># of bars
+                <input type="range" min="4" max="250" value="100">
+            </label>
+
+            <!-- customize the speed -->
+            <label>Sorting Speed
+                <input type="range" min="1" max="500" value="100">
+            </label>
+
+            <!-- select sorting algo -->
+            <select name="">
+                <option value="mergeSort" selected></option>
+                <option value="quickSort"></option>
+                <option value="selectionSort"></option>
+                <option value="insertionSort"></option>
+                <option value="bubbleSort"></option>
+            </select>
+        </div>
+    </header>
+
+    <main></main>
+
     <!-- link for Github & LinkedIn -->
     <footer>
         <ul>
             <li>
                 <a href="https://www.linkedin.com/in/beomjoo-jayden-kim-40a674143/" target="_blank" title="LinkedIn">
-                    <img src="assets/linkedin-logo" alt="LinkedIn" />
+                    <img src="assets/linkedin-logo.png" alt="LinkedIn" />
                 </a>
             </li>
             <li>
-                <a href="https://www.linkedin.com/in/beomjoo-jayden-kim-40a674143/" target="_blank" title="LinkedIn">
-                    <img src="assets/linkedin-logo" alt="LinkedIn" />
+                <a href="https://github.com/beomjookim/sorting-visualizer" target="_blank" title="Github">
+                    <img src="assets/github-logo.png" alt="Github" />
                 </a>
             </li>
         </ul>
