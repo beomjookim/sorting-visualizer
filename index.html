@@ -6,16 +6,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sorting Visualizer</title>
 
-    <!-- <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Jura:300,400,500,600,700&display=swap"> -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Jura:300,400,500,600,700&display=swap">
+    <link rel="stylesheet" href="assets/reset.css">
     <link rel="stylesheet" href="assets/style.css">
     <link rel="stylesheet" href="https://materialdesignicons.com/cdn/5.1.45/css/materialdesignicons.min.css">
-    <!-- <script src="https://polyfill.io/v3/polyfill.js"></script>
-    <script type="module" src="app/app.js"></script> -->
+    <!-- <script src="https://polyfill.io/v3/polyfill.js"></script> -->
+    <script type="module" src="app/app.js"></script>
 </head>
 
 <body>
     <header>
-        <div>
+        <section>
             <!-- button to generate bars -->
             <button>Generate Bars</button>
 
@@ -37,10 +38,31 @@
                 <option value="insertionSort"></option>
                 <option value="bubbleSort"></option>
             </select>
-        </div>
+
+            <!-- play/ stop button -->
+            <div>
+                <button title="Play">
+                    <i class="mdi mdi-play"> PLAY</i>
+                </button>
+                <button title="Stop">
+                    <i class="mdi mdi-stop"> STOP</i>
+                </button>
+            </div>
+        </section>
     </header>
 
-    <main></main>
+    <main>
+        <section>
+            <!-- progress bar -->
+            <!-- input으로 두는 게 나을지에 대해 고민해보자! -->
+            <div ...>
+                <input type="range" min="0" max="100" value="0">
+            </div>
+
+            <!-- animation rectangle -->
+            <div ...></div>
+        </section>
+    </main>
 
     <!-- link for Github & LinkedIn -->
     <footer>
@@ -56,6 +78,7 @@
                 </a>
             </li>
         </ul>
+        <span>Beomjoo "Jayden" Kim</span>
     </footer>
 </body>
 
