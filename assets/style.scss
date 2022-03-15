@@ -64,6 +64,19 @@ span {
     width: 100%;
 }
 
+.wrapper__animation {
+    @include flexCenter(row);
+    width: 100%;
+    flex-wrap: nowrap;
+    
+    .bar {
+        background-color: $borderColor;
+        border: thick solid green;
+        border-radius: 20px;
+        justify-items: center;
+    }
+}
+
 .slider {
     color: red;
 }

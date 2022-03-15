@@ -87,6 +87,34 @@ body {
   width: 100%;
 }
 
+.wrapper__animation {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  width: 100%;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+}
+
+.wrapper__animation .bar {
+  background-color: greenyellow;
+  border: thick solid green;
+  border-radius: 20px;
+  justify-items: center;
+}
+
 .slider {
   color: red;
 }
