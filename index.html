@@ -15,49 +15,48 @@
 </head>
 
 <body>
-    <header>
-        <section>
+    <header class="wrapper">
+        <section class="nav">
             <!-- button to generate bars -->
-            <button>Generate Bars</button>
+            <button class="nav__gen-btn">Generate Bars</button>
 
             <!-- customize num of bars -->
-            <label># of bars
-                <input type="range" min="4" max="250" value="100">
+            <label class="nav__num-label">
+                <span># of Bars</span>
+                <input class="slider" type="range" min="4" max="250" value="100">
             </label>
 
             <!-- customize the speed -->
-            <label>Sorting Speed
-                <input type="range" min="1" max="500" value="100">
+            <label class="nav__speed-label">
+                <span>Sorting Speed</span>
+                <input class="slider" type="range" min="1" max="500" value="100">
             </label>
 
             <!-- select sorting algo -->
-            <select name="">
-                <option value="mergeSort" selected></option>
-                <option value="quickSort"></option>
-                <option value="selectionSort"></option>
-                <option value="insertionSort"></option>
-                <option value="bubbleSort"></option>
+            <select class="nav__algo-slt" name="">
+                <option value="mergeSort" selected>Merge Sort</option>
+                <option value="quickSort">Quick Sort</option>
+                <option value="selectionSort">Selection Sort</option>
+                <option value="insertionSort">Insertion Sort</option>
+                <option value="bubbleSort">Bubble Sort</option>
             </select>
 
             <!-- play/ stop button -->
-            <div>
+            <div class="nav__ctrl-btn">
                 <button title="Play">
-                    <i class="mdi mdi-play"> PLAY</i>
+                    <i class="mdi mdi-play nav__ctrl-play-btn"> PLAY</i>
                 </button>
                 <button title="Stop">
-                    <i class="mdi mdi-stop"> STOP</i>
+                    <i class="mdi mdi-stop nav__ctrl-stop-btn"> STOP</i>
                 </button>
             </div>
         </section>
     </header>
 
     <main>
-        <section>
+        <section class="wrapper">
             <!-- progress bar -->
-            <!-- input으로 두는 게 나을지에 대해 고민해보자! -->
-            <div ...>
-                <input type="range" min="0" max="100" value="0">
-            </div>
+            <input class="wrapper__slider slider" type="range" min="0" max="100" value="0">
 
             <!-- animation rectangle -->
             <div ...></div>
@@ -66,7 +65,7 @@
 
     <!-- link for Github & LinkedIn -->
     <footer>
-        <ul>
+        <ul class="credits">
             <li>
                 <a href="https://www.linkedin.com/in/beomjoo-jayden-kim-40a674143/" target="_blank" title="LinkedIn">
                     <img src="assets/linkedin-logo.png" alt="LinkedIn" />

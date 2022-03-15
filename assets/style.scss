@@ -1,0 +1,101 @@
+$textColor: black;
+// $primaryColor: rgb(91, 209, 130);
+$borderColor: greenyellow;
+$backgroundColor: rgb(148, 211, 148);
+
+@mixin flexCenter($direction) {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    flex-direction: $direction;
+}
+
+* {
+    font-family: "Jura", sans-serif;
+    font-size: large;
+    font-weight: 700;
+}
+
+body {
+    background-color: $backgroundColor;
+    color: $textColor;
+}
+
+// 이건 왜 이렇게 따로 해줘야 할까?
+span {
+    @extend *;
+}
+
+.wrapper {
+    @include flexCenter(column);
+
+    height: calc(100vh-15px);
+    margin: 0;
+    padding: 0 50px;
+}
+
+.nav {
+    @include flexCenter(row);
+
+    * {
+        margin: 10px;
+    }
+
+    .nav__num-label, .nav__speed-label {
+        @include flexCenter(column);
+    }
+
+    .nav__gen-btn, .nav__algo-slt {
+        padding: 10px;
+    }
+
+    .nav__ctrl-btn {
+        margin: 0px 100px;
+    }
+
+    span {
+        margin: 15px 0px 0px 0px;
+    }
+}
+
+.wrapper__slider {
+    padding: 20px 0px;
+    width: 100%;
+}
+
+.slider {
+    color: red;
+}
+
+.credits {
+    @include flexCenter(row);
+    position: fixed;
+    right: 50%;
+    top: 100%;
+    transform: translateY(-100%);
+    background-color: white;
+    box-shadow: 0 0 8px 3px $borderColor;
+    padding: 5px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    li {
+        transition: all .3s;
+        justify-content: center;
+        img {
+            width: 30px;
+            height: 30px;
+            margin: 2px;
+        }
+        &:hover {
+            transform: scale(1.2);
+        }
+    }
+}
+
+footer span{
+    font-size: larger;
+    position: fixed;
+    right: 10%;
+    top: 95%;
+}
