@@ -15,25 +15,25 @@
 </head>
 
 <body>
-    <header class="wrapper">
-        <section class="nav">
+    <header>
+        <section class="nav wrapper">
             <!-- button to generate bars -->
             <button class="nav__gen-btn">Generate Bars</button>
 
             <!-- customize num of bars -->
             <label class="nav__num-label">
                 <span># of Bars</span>
-                <input class="slider" type="range" min="4" max="250" value="100">
+                <input class="nav__num-slider" type="range" min="10" max="170" value="30">
             </label>
 
             <!-- customize the speed -->
             <label class="nav__speed-label">
                 <span>Sorting Speed</span>
-                <input class="slider" type="range" min="1" max="500" value="100">
+                <input type="range" min="5" max="100" value="50">
             </label>
 
             <!-- select sorting algo -->
-            <select class="nav__algo-slt" name="">
+            <select class="nav__algo-slt">
                 <option value="mergeSort" selected>Merge Sort</option>
                 <option value="quickSort">Quick Sort</option>
                 <option value="selectionSort">Selection Sort</option>
@@ -44,7 +44,7 @@
             <!-- play/ stop button -->
             <div class="nav__ctrl-btn">
                 <button title="Play">
-                    <i class="mdi mdi-play nav__ctrl-play-btn"> PLAY</i>
+                    <i class="mdi mdi-play nav__ctrl-toggle-btn"> PLAY</i>
                 </button>
                 <button title="Stop">
                     <i class="mdi mdi-stop nav__ctrl-stop-btn"> STOP</i>
@@ -54,12 +54,12 @@
     </header>
 
     <main>
-        <section class="wrapper">
+        <section class="ani wrapper">
             <!-- progress bar -->
-            <input class="wrapper__slider slider" type="range" min="0" max="100" value="0">
+            <input class="ani__slider" type="range" min="0" max="100" value="0">
 
             <!-- animation rectangle -->
-            <div class="wrapper__animation"></div>
+            <div class="ani__animation"></div>
         </section>
     </main>
 

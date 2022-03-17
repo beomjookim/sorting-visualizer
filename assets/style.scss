@@ -1,5 +1,4 @@
 $textColor: black;
-// $primaryColor: rgb(91, 209, 130);
 $borderColor: greenyellow;
 $backgroundColor: rgb(148, 211, 148);
 
@@ -59,26 +58,22 @@ span {
     }
 }
 
-.wrapper__slider {
+.ani__slider {
     padding: 20px 0px;
     width: 100%;
 }
 
-.wrapper__animation {
+.ani__animation {
     @include flexCenter(row);
     width: 100%;
     flex-wrap: nowrap;
     
     .bar {
         background-color: $borderColor;
-        border: thick solid green;
-        border-radius: 20px;
+        border: .15rem solid green;
+        border-radius: 15px;
         justify-items: center;
     }
-}
-
-.slider {
-    color: red;
 }
 
 .credits {

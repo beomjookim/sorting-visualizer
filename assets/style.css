@@ -82,12 +82,12 @@ body {
   margin: 15px 0px 0px 0px;
 }
 
-.wrapper__slider {
+.ani__slider {
   padding: 20px 0px;
   width: 100%;
 }
 
-.wrapper__animation {
+.ani__animation {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -108,10 +108,10 @@ body {
       flex-wrap: nowrap;
 }
 
-.wrapper__animation .bar {
+.ani__animation .bar {
   background-color: greenyellow;
-  border: thick solid green;
-  border-radius: 20px;
+  border: .15rem solid green;
+  border-radius: 15px;
   justify-items: center;
 }
 
