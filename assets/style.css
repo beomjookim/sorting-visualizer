@@ -1,7 +1,14 @@
-*, span {
+*, .invisible, span {
   font-family: "Jura", sans-serif;
   font-size: large;
   font-weight: 700;
+}
+
+.invisible {
+  position: relative;
+  text-align: center;
+  top: 50px;
+  opacity: 0;
 }
 
 body {
@@ -48,7 +55,7 @@ body {
           flex-direction: row;
 }
 
-.nav *, .nav span {
+.nav *, .nav .invisible, .nav span {
   margin: 10px;
 }
 
@@ -115,10 +122,6 @@ body {
   justify-items: center;
 }
 
-.slider {
-  color: red;
-}
-
 .credits {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -172,5 +175,14 @@ footer span {
   position: fixed;
   right: 10%;
   top: 95%;
+}
+
+@media (max-width: 560px) {
+  header, main, footer {
+    opacity: 0;
+  }
+  .invisible {
+    opacity: 100;
+  }
 }
 /*# sourceMappingURL=style.css.map */
