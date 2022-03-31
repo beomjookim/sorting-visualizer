@@ -5,11 +5,6 @@
 현재는 merge / quick / insertion / selection / bubble sort의 5가지 정렬방법을 제공합니다.  
 
 
-## Link to the project
-
-...
-
-
 ## Skills used
 
 HTML, CSS, SASS, JavaScript
@@ -46,3 +41,8 @@ HTML, CSS, SASS, JavaScript
 - ㄷ
 - ㄹ
 - ㅎ
+
+
+## Link to the project
+
+...
