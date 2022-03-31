@@ -5,6 +5,7 @@
 }
 
 .invisible {
+  color: red;
   position: relative;
   text-align: center;
   top: 50px;

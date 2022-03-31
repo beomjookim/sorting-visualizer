@@ -14,18 +14,14 @@ export function mergeSort(barsData) {
 
     function mergeSort(arr, start, end) {
         if (start < end) {
-
             let mid = parseInt((start + end) / 2);
             mergeSort(arr, start, mid)
             mergeSort(arr, mid + 1, end)
-
             merge(arr, start, mid, end)
         }
     }
 
     function merge(arr, start, mid, end) {
-
-
         let arr2 = arr.slice(0);
         let i = start, j = mid + 1;
         let k = start;
@@ -37,12 +33,9 @@ export function mergeSort(barsData) {
             }
             else {
                 addFrame({ compare: [k, j], orderedIndex: j, start, mid, end })
-
                 arr.splice(j, 1)
                 arr.splice(k++, 0, arr2[j++])
-
             }
-
         }
 
         while (i <= mid) {
