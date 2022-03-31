@@ -30,5 +30,5 @@ HTML, CSS, SASS, JavaScript
 
 ## Optimizing
 
-- 새로운 정렬이 만들어질  내부에서 sorting을 진행하는 기존의 코드를 play 버튼이 직접 눌렸을 때만 sorting을 하는 것으로 수정, 시간 효율성 증대.
+- 새로운 정렬이 만들어질 때마다 내부에서 sorting을 진행하는 기존의 코드를 play 버튼이 직접 눌렸을 때만 sorting을 하는 것으로 수정, 시간 효율성 증대.
 - 
