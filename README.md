@@ -31,7 +31,7 @@ HTML, CSS, SASS, JavaScript
   <img src="https://user-images.githubusercontent.com/29809668/161408302-bd771fea-1385-403a-af44-2e4e5dda0946.png" width="600" height="300"/>
   
   ### after
-  <img src="https://user-images.githubusercontent.com/29809668/161408306-552d0503-c2e5-4b00-8257-aaca133aa0a9.png" width="400" height="300"/>
+  <img src="https://user-images.githubusercontent.com/29809668/161408306-552d0503-c2e5-4b00-8257-aaca133aa0a9.png" width="400" height="200"/>
 
 - 
 
