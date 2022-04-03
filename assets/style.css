@@ -123,6 +123,10 @@ body {
   justify-items: center;
 }
 
+.ani__animation .comparing {
+  background-color: red;
+}
+
 .credits {
   display: -webkit-box;
   display: -ms-flexbox;
