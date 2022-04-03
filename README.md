@@ -28,9 +28,9 @@ HTML, CSS, SASS, JavaScript
 
 - 새로운 정렬이 만들어질 때마다 내부에서 sorting을 진행하는 기존의 코드를 play 버튼이 직접 눌렸을 때만 sorting을 하는 것으로 수정, 시간 효율성 증대. 한 사이즈 값에서 다른 사이즈 값으로 옮겨갈 때, 기존 코드는 약 25ms가 들었는데 현재 코드는 이를 9ms로 단축, 약 64% 단축함.  
   ### before
-  ![사이즈 슬라이더 최적화 전(25ms)](https://user-images.githubusercontent.com/29809668/161408302-bd771fea-1385-403a-af44-2e4e5dda0946.png){: width="100" height="100"}
+  ![사이즈 슬라이더 최적화 전(25ms)](https://user-images.githubusercontent.com/29809668/161408302-bd771fea-1385-403a-af44-2e4e5dda0946.png){: width="100px" height="100px"}
   ### after
-  ![사이즈 슬라이더 최적화 후(9ms)](https://user-images.githubusercontent.com/29809668/161408306-552d0503-c2e5-4b00-8257-aaca133aa0a9.png){: width="100" height="100"}
+  ![사이즈 슬라이더 최적화 후(9ms)](https://user-images.githubusercontent.com/29809668/161408306-552d0503-c2e5-4b00-8257-aaca133aa0a9.png){: width="100px" height="100px"}
 
 
 - 
