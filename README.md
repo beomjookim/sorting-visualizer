@@ -26,7 +26,12 @@ HTML, CSS, SASS, JavaScript
 
 ## Optimizing
 
-- 새로운 정렬이 만들어질 때마다 내부에서 sorting을 진행하는 기존의 코드를 play 버튼이 직접 눌렸을 때만 sorting을 하는 것으로 수정, 시간 효율성 증대.
+- 새로운 정렬이 만들어질 때마다 내부에서 sorting을 진행하는 기존의 코드를 play 버튼이 직접 눌렸을 때만 sorting을 하는 것으로 수정, 시간 효율성 증대. 한 사이즈 값에서 다른 사이즈 값으로 옮겨갈 때, 기존 코드는 약 25ms가 들었는데 현재 코드는 이를 9ms로 단축, 약 64% 단축함.  
+  ### before
+  ![image](https://user-images.githubusercontent.com/29809668/161408231-13a3563c-86b3-4442-bd97-2c147ddce77a.png)
+  ### after
+  ![image](https://user-images.githubusercontent.com/29809668/161408286-0a904567-b690-423d-b49c-d02f253b10bd.png)
+
 - 
 
 
