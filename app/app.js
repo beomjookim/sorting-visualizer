@@ -1,6 +1,6 @@
 import * as sorting from './sorting-algorithms.js'
 
-const [barsElement, sortingAlgorithms, genBtn, toggleBtn, stopBtn, arrSizeSlider, aniSpeedSlider, aniSlider] = getElements(['.ani__animation', '.nav__algo-slt', '.nav__gen-btn', '.nav__ctrl-toggle-btn', '.nav__ctrl-stop-btn', '.nav__num-label', '.nav__speed-label', '.ani__slider']);
+const [barsElement, sortingAlgorithms, genBtn, toggleBtn, stopBtn, arrSizeSlider, aniSpeedSlider, aniSlider] = ['.ani__animation', '.nav__algo-slt', '.nav__gen-btn', '.nav__ctrl-toggle-btn', '.nav__ctrl-stop-btn', '.nav__num-label', '.nav__speed-label', '.ani__slider'].map(e => document.querySelector(e));
 
 let ARRAY_SIZE = 30;
 let ANIMATION_TIME = 10; // 최소 5 최대 100
@@ -13,16 +13,10 @@ let barsData;
 let animationFrames;
 let interval;
 
-function getElements(elements) {
-    return elements.map(e => document.querySelector(e));
-}
-
 function genArray() {
-    barsData = [];
     const minSize = 10;
     const maxSize = window.innerHeight - 300;
-
-    for (let i = 0; i < ARRAY_SIZE; i++) barsData.push(Math.floor(Math.random() * (maxSize-minSize) + minSize));
+    barsData = Array.from({length: ARRAY_SIZE}, () => Math.floor(Math.random() * (maxSize-minSize) + minSize));
 
     isSorted = false;
     renderBars(barsData);
@@ -32,9 +26,8 @@ function genArray() {
 
 // sorting 시전: unsorted array 받아서 sorting 하면서 그 과정을 장면 별로 받음.
 function sort(barsData){
-    const result = sorting[sortingAlgorithms.value](barsData);
+    animationFrames = sorting[sortingAlgorithms.value](barsData);
     isSorted = true;
-    animationFrames = result.animationFrames;
     aniSlider.setAttribute('max', animationFrames.length-1);
 };
 
@@ -47,9 +40,9 @@ function playAnimation(){
     let cur = aniSlider.value;
     interval = setInterval(() => {
         cur++;
-        renderBars(animationFrames[cur].arr)
+        renderBars(cur);
         setSlider(cur);
-    }, ANIMATION_TIME)
+    }, ANIMATION_TIME);
 }
 
 function pauseAnimation(){
@@ -64,7 +57,7 @@ function stopAnimation(){
     if (interval) pauseAnimation();
     setSlider(0);
     enableSizeControl();
-    renderBars(animationFrames[0].arr);
+    renderBars(0);
     interval = null;
 }
 
@@ -78,9 +71,20 @@ function setSlider(index){
     aniSlider.value = index;
 }
 
-function renderBars(bars){
-    barsElement.innerHTML = bars.map((height) => `<div class="bar" style="height: ${height}px; width: ${BAR_WIDTH}px"></div>`).join('');
-}
+function renderBars(frameIndex){
+    if (!Number.isInteger(frameIndex)) {
+        barsElement.innerHTML = frameIndex.map((height) => `<div class="bar" style="height: ${height}px; width: ${BAR_WIDTH}px"></div>`).join('');
+        return;
+    }
+    // 분명 같은 함수인데, JS가 오버로딩 기능을 지원하지 않아서 강제로 만듦.
+
+    let frame = animationFrames[frameIndex];
+    let { arr, compare = [], orderedIndex, start, mid, end } = frame;
+
+    barsElement.innerHTML = frame.arr.map((height, index) => 
+    `<div class="bar ${compare.includes(index) ? 'comparing' : ''} ${(start == 0 && end == arr.length - 1) && (compare[0] == undefined || index < compare[0]) ? 'sorted' : ''} ${orderedIndex == index ? 'ordered' : ''} ${start == index ? 'start' : ''} ${end == index ? 'end' : ''} ${mid == index ? 'mid' : ''} " style="height: ${height}px; width: ${BAR_WIDTH}px"></div>`).join("");
+}    
+
 
 function playOrPause(){
     if (isPlaying) pauseAnimation();
@@ -121,7 +125,7 @@ aniSpeedSlider.addEventListener('input', e => {
 aniSlider.addEventListener('input', e => {
     if (!isSorted) sort(barsData);
     if (isPlaying) pauseAnimation();
-    renderBars(animationFrames[e.target.value].arr)
+    renderBars(parseInt(e.target.value));
 })
 
 genBtn.onclick = genArray;       // Generate Bars 눌렀을 때 새로운 어레이 렌더링
