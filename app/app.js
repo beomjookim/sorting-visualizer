@@ -22,7 +22,7 @@ function genArray() {
     isSorted = false;
     barsElement.innerHTML = barsData.map((height) => `<div class="bar" style="height: ${height}px; width: ${BAR_WIDTH}px"></div>`).join('');
 
-    enableSizeControl();
+    enableControls();
     setSlider(0);
 }
 
@@ -39,7 +39,7 @@ function playAnimation(){
     isPlaying = true;
     toggleBtn.setAttribute('class', 'mdi mdi-pause nav__ctrl-toggle-btn');
     toggleBtn.innerHTML = ' PAUSE';
-    disableSizeControl();
+    disableControls();
 
     let cur = aniSlider.value == animationFrames.length-1 ? 0 : aniSlider.value;
     // 만약 애니메이션이 완료된 상태에서 플레이 버튼이 눌리면 다시 처음부터 리플레이.
@@ -61,7 +61,7 @@ function pauseAnimation(){
 function stopAnimation(){
     if (interval) pauseAnimation();
     setSlider(0);
-    enableSizeControl();
+    enableControls();
     renderBars(0);
     interval = null;
 }
@@ -88,23 +88,22 @@ function playOrPause(){
     }
 }
 
-function disableSizeControl(){
-    arrSizeSlider.querySelector('input').setAttribute('disabled', '')
+function disableControls(){
+    arrSizeSlider.querySelector('input').setAttribute('disabled', '');
+    sortingAlgorithms.setAttribute('disabled', '');
 }
 
-function enableSizeControl(){
+function enableControls(){
     arrSizeSlider.querySelector('input').removeAttribute('disabled');
+    sortingAlgorithms.removeAttribute('disabled');
 }
 
 genArray(); // 화면 처음 틀었을 때 새로운 어레이 렌더링
 
 // # of Bars 컨트롤 시 새로운 어레이 렌더링
 arrSizeSlider.addEventListener('input', e => {
-    if (!parseInt(aniSlider.value)){
-        ARRAY_SIZE = e.target.value;
-        genArray();
-    }
-    // 배열이 초기화된 상태가 아니면 안 움직이게!
+    ARRAY_SIZE = e.target.value;
+    genArray();
 })
 
 // speed 컨트롤 시 해당 값 적용
@@ -120,6 +119,10 @@ aniSlider.addEventListener('input', e => {
     if (!isSorted) sort(barsData);
     if (isPlaying) pauseAnimation();
     renderBars(parseInt(e.target.value));
+})
+
+sortingAlgorithms.addEventListener('change', e => {
+    genArray();
 })
 
 genBtn.onclick = genArray;       // Generate Bars 눌렀을 때 새로운 어레이 렌더링
