@@ -2,11 +2,10 @@ export function mergeSort(barsData) {
     let animationFrames = [];
     let dataLength = barsData.length-1;
 
-    function addFrame({ compare = [], orderedIndex, start, mid, end }) {
+    function addFrame({ compare = [], start, mid, end }) {
         animationFrames.push({
             arr: [...barsData],
             compare,
-            orderedIndex,
             start,
             mid,
             end,
@@ -36,7 +35,7 @@ export function mergeSort(barsData) {
                 arr.splice(j, 1);
                 arr.splice(k++, 0, arr2[j++]);
             }
-            addFrame({...frame, compare: [j,k], orderedIndex: k});
+            addFrame({...frame, compare: [j,k]});
         }
 
         while (i <= mid) {
@@ -51,7 +50,9 @@ export function mergeSort(barsData) {
         }
     }
 
+    addFrame({})
     mergeSort(barsData, 0, dataLength);
+    addFrame({ start: 0, mid: (barsData.length - 1) / 2, end: barsData.length - 1 })
 
     return animationFrames;
 }

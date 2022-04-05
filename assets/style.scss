@@ -1,7 +1,3 @@
-$textColor: black;
-$borderColor: greenyellow;
-$backgroundColor: rgb(148, 211, 148);
-
 @mixin flexCenter($direction) {
     display: flex;
     justify-content: center;
@@ -26,8 +22,8 @@ $backgroundColor: rgb(148, 211, 148);
 }
 
 body {
-    background-color: $backgroundColor;
-    color: $textColor;
+    background-color: rgb(148, 211, 148);
+    color: black;
 }
 
 // 이건 왜 이렇게 따로 해줘야 할까?
@@ -78,14 +74,18 @@ span {
     flex-wrap: nowrap;
     
     .bar {
-        background-color: $borderColor;
-        border: .15rem solid green;
+        background-color: greenyellow;
+        border: .15rem solid rgb(66, 160, 66);
         border-radius: 15px;
         justify-items: center;
     }
 
     .comparing {
-        background-color: red;
+        background-color: rgb(238, 118, 172);
+    }
+
+    .sorted {
+        background-color: rgb(25, 225, 25);
     }
 
     // 추가해서 css 부분 마무리 짓자!
@@ -99,7 +99,7 @@ span {
     top: 100%;
     transform: translateY(-100%);
     background-color: white;
-    box-shadow: 0 0 8px 3px $borderColor;
+    box-shadow: 0 0 8px 3px greenyellow;
     padding: 5px;
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;

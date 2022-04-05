@@ -82,7 +82,7 @@ function renderBars(frameIndex){
     let { arr, compare = [], orderedIndex, start, mid, end } = frame;
 
     barsElement.innerHTML = frame.arr.map((height, index) => 
-    `<div class="bar ${compare.includes(index) ? 'comparing' : ''} ${(start == 0 && end == arr.length - 1) && (compare[0] == undefined || index < compare[0]) ? 'sorted' : ''} ${orderedIndex == index ? 'ordered' : ''} ${start == index ? 'start' : ''} ${end == index ? 'end' : ''} ${mid == index ? 'mid' : ''} " style="height: ${height}px; width: ${BAR_WIDTH}px"></div>`).join("");
+    `<div class="bar${compare.includes(index) ? ' comparing' : ''}${(start == 0 && end == arr.length - 1) && (compare[0] == undefined || index < compare[0]) ? ' sorted' : ''}" style="height: ${height}px; width: ${BAR_WIDTH}px"></div>`).join("");
 }    
 
 

@@ -118,13 +118,17 @@ body {
 
 .ani__animation .bar {
   background-color: greenyellow;
-  border: .15rem solid green;
+  border: 0.15rem solid #42a042;
   border-radius: 15px;
   justify-items: center;
 }
 
 .ani__animation .comparing {
-  background-color: red;
+  background-color: #ee76ac;
+}
+
+.ani__animation .sorted {
+  background-color: #19e119;
 }
 
 .credits {
