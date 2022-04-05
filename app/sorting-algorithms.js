@@ -95,8 +95,6 @@ export function quickSort(barsData) {
         addFrame({ low, high, pivot: high })
         let j;
         for (j = low; j < high; j++) {
-            // addFrame({ low, high, pivot: high, compare: [i, j] })
-
             if (barsData[j] <= pivot) {
                 addFrame({ low, high, pivot: high, compare: [i, j], swap: [j] })
                 i++;
@@ -131,14 +129,13 @@ export function quickSort(barsData) {
 
     return {
         animationFrames,
-        renderBars: (frameIndex) => {
+        renderFrame: (frameIndex, width) => {
             let frame = animationFrames[frameIndex];
             return frame.arr.map((bar, index) => {
                 let { compare = [], pivot, low, high, swap = [], sorted } = frame
                 return `
-            <div class="bar ${compare.includes(index) ? 'comparing' : ''} ${sorted.includes(index) ? 'sorted' : ''} ${pivot == index ? 'pivot' : ''} ${swap.includes(index) ? 'swap' : ''} ${low == index ? 'start' : ''} ${high == index ? 'end' : ''}" style="height: ${bar}px;"></div>
+            <div class="bar ${compare.includes(index) ? 'comparing' : ''} ${sorted.includes(index) ? 'sorted' : ''} ${pivot == index ? 'pivot' : ''} ${swap.includes(index) ? 'swap' : ''} ${low == index ? 'start' : ''} ${high == index ? 'end' : ''}" style="height: ${bar}px; width: ${width}px"></div>
         `}).join("")
         }
     };
-
 }

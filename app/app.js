@@ -41,7 +41,7 @@ function playAnimation(){
     toggleBtn.innerHTML = ' PAUSE';
     disableSizeControl();
 
-    let cur = aniSlider.value == animationFrames.length-1? 0 : aniSlider.value;
+    let cur = aniSlider.value == animationFrames.length-1 ? 0 : aniSlider.value;
     // 만약 애니메이션이 완료된 상태에서 플레이 버튼이 눌리면 다시 처음부터 리플레이.
     interval = setInterval(() => {
         cur++;
