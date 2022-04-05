@@ -59,83 +59,73 @@ export function mergeSort(barsData) {
         renderFrame: (frameIndex, width) => {
             let frame = animationFrames[frameIndex];
             let { arr, compare = [], start, end } = frame;
-
             return frame.arr.map((height, index) => `<div class="bar${compare.includes(index) ? ' comparing' : ''}${(start == 0 && end == arr.length - 1) && (compare[0] == undefined || index < compare[0]) ? ' sorted' : ''}" style="height: ${height}px; width: ${width}px"></div>`).join("");
         }
     };
 }
 
 export function quickSort(barsData) {
-    var animationFrames = [];
+    let animationFrames = [];
+    let sorted = [];
+
     function addFrame({ compare = [], pivot, low, high, swap }) {
-        // console.log(arguments);
-        // debugger
-        // let parentArgs = addFrame.caller.arguments;
         animationFrames.push({
-            arr: barsData.slice(),
+            arr: [...barsData],
             compare,
             pivot,
             low,
             high,
-            sorted: sorted.slice(),
+            sorted: [...sorted],
             swap
         })
-        // return await delay();
     }
 
     function swap(i, j) {
-        let temp = barsData[i];
-        barsData[i] = barsData[j];
-        barsData[j] = temp;
+        [barsData[i], barsData[j]] = [barsData[j], barsData[i]];
     }
+
     function partition(low, high) {
-        let pivot = barsData[high];
-        let i = (low - 1);
+        let pivot = barsData[high]; // 어차피 랜덤이므로 맨 뒤에 있는 친구를 pivot으로 선정!
+        let i = low - 1;
+        const frame = { low, high, pivot: high };
 
-        addFrame({ low, high, pivot: high })
-        let j;
-        for (j = low; j < high; j++) {
+        addFrame(frame);
+        let j = low;
+        for (; j < high; j++) {
             if (barsData[j] <= pivot) {
-                addFrame({ low, high, pivot: high, compare: [i, j], swap: [j] })
+                addFrame({ ...frame, compare: [i, j], swap: [j] });
                 i++;
-                addFrame({ low, high, pivot: high, compare: [i, j], swap: [i, j] })
-                swap(i, j)
-                addFrame({ low, high, pivot: high, compare: [i, j] })
+                addFrame({ ...frame, compare: [i, j], swap: [i, j] });
+                swap(i, j);
             }
-            else
-                addFrame({ low, high, pivot: high, compare: [i, j] })
+            addFrame({ ...frame, compare: [i, j] });
         }
-        addFrame({ low, high, pivot: high, compare: [i, j], swap: [i + 1, high] })
-        swap(i + 1, high)
-        addFrame({ low, high, pivot: i + 1, compare: [i, j] })
-        return (i + 1);
+        addFrame({ ...frame, compare: [i, j], swap: [i + 1, high] });
+        swap(i + 1, high);
+        addFrame({ low, high, pivot: i + 1, compare: [i, j] });
+        return i + 1;
     }
 
-    var sorted = [];
     function quickSort(low, high) {
         if (low < high) {
             let pi = partition(low, high);
             sorted.push(pi);
             quickSort(low, pi - 1);
             quickSort(pi + 1, high);
-        } else {
-            sorted.push(low, high)
-        }
+        } 
+        else sorted.push(low, high);
     }
 
-    addFrame({})
+    addFrame({});
     quickSort(0, barsData.length - 1);
-    addFrame({})
+    addFrame({});
 
     return {
         animationFrames,
         renderFrame: (frameIndex, width) => {
             let frame = animationFrames[frameIndex];
-            return frame.arr.map((bar, index) => {
-                let { compare = [], pivot, low, high, swap = [], sorted } = frame
-                return `
-            <div class="bar ${compare.includes(index) ? 'comparing' : ''} ${sorted.includes(index) ? 'sorted' : ''} ${pivot == index ? 'pivot' : ''} ${swap.includes(index) ? 'swap' : ''} ${low == index ? 'start' : ''} ${high == index ? 'end' : ''}" style="height: ${bar}px; width: ${width}px"></div>
-        `}).join("")
+            let { compare = [], pivot, low, high, swap = [], sorted } = frame;
+            return frame.arr.map((bar, index) => `<div class="bar ${compare.includes(index) ? 'comparing' : ''} ${sorted.includes(index) ? 'sorted' : ''} ${pivot == index ? 'pivot' : ''} ${swap.includes(index) ? 'swap' : ''} ${low == index ? 'start' : ''} ${high == index ? 'end' : ''}" style="height: ${bar}px; width: ${width}px"></div>`).join("");
         }
     };
 }
