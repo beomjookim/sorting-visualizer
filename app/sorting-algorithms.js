@@ -125,7 +125,7 @@ export function quickSort(barsData) {
         renderFrame: (frameIndex, width) => {
             let frame = animationFrames[frameIndex];
             let { compare = [], pivot, low, high, swap = [], sorted } = frame;
-            return frame.arr.map((bar, index) => `<div class="bar ${compare.includes(index) ? 'comparing' : ''} ${sorted.includes(index) ? 'sorted' : ''} ${pivot == index ? 'pivot' : ''} ${swap.includes(index) ? 'swap' : ''} ${low == index ? 'start' : ''} ${high == index ? 'end' : ''}" style="height: ${bar}px; width: ${width}px"></div>`).join("");
+            return frame.arr.map((bar, index) => `<div class="bar${compare.includes(index) ? ' comparing' : ''}${sorted.includes(index) ? ' sorted' : ''}${pivot == index ? ' pivot' : ''}${swap.includes(index) ? ' swap' : ''}${low == index ? ' start' : ''}${high == index ? ' end' : ''}" style="height: ${bar}px; width: ${width}px"></div>`).join("");
         }
     };
 }
