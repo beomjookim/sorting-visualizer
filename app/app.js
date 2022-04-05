@@ -11,6 +11,7 @@ let isSorted = false;
 
 let barsData;
 let animationFrames;
+let renderFrame;
 let interval;
 
 function genArray() {
@@ -19,14 +20,17 @@ function genArray() {
     barsData = Array.from({length: ARRAY_SIZE}, () => Math.floor(Math.random() * (maxSize-minSize) + minSize));
 
     isSorted = false;
-    renderBars(barsData);
+    barsElement.innerHTML = barsData.map((height) => `<div class="bar" style="height: ${height}px; width: ${BAR_WIDTH}px"></div>`).join('');
+
     enableSizeControl();
     setSlider(0);
 }
 
 // sorting 시전: unsorted array 받아서 sorting 하면서 그 과정을 장면 별로 받음.
 function sort(barsData){
-    animationFrames = sorting[sortingAlgorithms.value](barsData);
+    let results = sorting[sortingAlgorithms.value](barsData);
+    animationFrames = results.animationFrames;
+    renderFrame = results.renderFrame;
     isSorted = true;
     aniSlider.setAttribute('max', animationFrames.length-1);
 };
@@ -73,19 +77,8 @@ function setSlider(index){
 }
 
 function renderBars(frameIndex){
-    if (!Number.isInteger(frameIndex)) {
-        barsElement.innerHTML = frameIndex.map((height) => `<div class="bar" style="height: ${height}px; width: ${BAR_WIDTH}px"></div>`).join('');
-        return;
-    }
-    // 분명 같은 함수인데, JS가 오버로딩 기능을 지원하지 않아서 강제로 만듦.
-
-    let frame = animationFrames[frameIndex];
-    let { arr, compare = [], start, end } = frame;
-
-    barsElement.innerHTML = frame.arr.map((height, index) => 
-    `<div class="bar${compare.includes(index) ? ' comparing' : ''}${(start == 0 && end == arr.length - 1) && (compare[0] == undefined || index < compare[0]) ? ' sorted' : ''}" style="height: ${height}px; width: ${BAR_WIDTH}px"></div>`).join("");
-}    
-
+    barsElement.innerHTML = renderFrame(frameIndex, BAR_WIDTH);
+}
 
 function playOrPause(){
     if (isPlaying) pauseAnimation();
