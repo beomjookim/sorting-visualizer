@@ -37,7 +37,8 @@ function playAnimation(){
     toggleBtn.innerHTML = ' PAUSE';
     disableSizeControl();
 
-    let cur = aniSlider.value;
+    let cur = aniSlider.value == animationFrames.length-1? 0 : aniSlider.value;
+    // 만약 애니메이션이 완료된 상태에서 플레이 버튼이 눌리면 다시 처음부터 리플레이.
     interval = setInterval(() => {
         cur++;
         renderBars(cur);
@@ -79,7 +80,7 @@ function renderBars(frameIndex){
     // 분명 같은 함수인데, JS가 오버로딩 기능을 지원하지 않아서 강제로 만듦.
 
     let frame = animationFrames[frameIndex];
-    let { arr, compare = [], orderedIndex, start, mid, end } = frame;
+    let { arr, compare = [], start, end } = frame;
 
     barsElement.innerHTML = frame.arr.map((height, index) => 
     `<div class="bar${compare.includes(index) ? ' comparing' : ''}${(start == 0 && end == arr.length - 1) && (compare[0] == undefined || index < compare[0]) ? ' sorted' : ''}" style="height: ${height}px; width: ${BAR_WIDTH}px"></div>`).join("");
