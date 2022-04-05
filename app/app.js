@@ -121,7 +121,7 @@ aniSlider.addEventListener('input', e => {
     renderBars(parseInt(e.target.value));
 })
 
-sortingAlgorithms.addEventListener('change', e => {
+sortingAlgorithms.addEventListener('change', () => {
     genArray();
 })
 

@@ -3,7 +3,7 @@ export function mergeSort(barsData) {
     let dataLength = barsData.length-1;
     let sorted = [];
 
-    function addFrame({ compare = []}) {
+    function addFrame({compare = []}) {
         animationFrames.push({
             arr: [...barsData],
             compare,
@@ -59,7 +59,7 @@ export function mergeSort(barsData) {
         animationFrames,
         renderFrame: (frameIndex, width) => {
             let frame = animationFrames[frameIndex];
-            let {compare = [], sorted} = frame;
+            let {compare, sorted} = frame;
             return frame.arr.map((height, index) => `<div class="bar${compare.includes(index) ? ' comparing' : ''}${sorted.includes(index) ? ' sorted' : ''}" style="height: ${height}px; width: ${width}px"></div>`).join("");
         }
     };
@@ -69,12 +69,12 @@ export function quickSort(barsData) {
     let animationFrames = [];
     let sorted = [];
 
-    function addFrame({ compare = [], pivot}) {
+    function addFrame({compare = [], pivot}) {
         animationFrames.push({
             arr: [...barsData],
             compare,
             pivot,
-            sorted: [...sorted],
+            sorted: [...sorted]
         })
     }
 
@@ -122,20 +122,119 @@ export function quickSort(barsData) {
         animationFrames,
         renderFrame: (frameIndex, width) => {
             let frame = animationFrames[frameIndex];
-            let {compare = [], pivot, sorted} = frame;
+            let {compare, pivot, sorted} = frame;
             return frame.arr.map((bar, index) => `<div class="bar${compare.includes(index) ? ' comparing' : ''}${sorted.includes(index) ? ' sorted' : ''}${pivot == index ? ' pivot' : ''}" style="height: ${bar}px; width: ${width}px"></div>`).join("");
         }
     };
 }
 
 export function insertionSort(barsData) {
-    
+    let animationFrames = [];
+    let sortedBarsData = [];
+
+    function addFrame({compare = []}) {
+        animationFrames.push({
+            arr: [...barsData, ...sortedBarsData],
+            compare
+        });
+    }
+
+    while (barsData.length){
+        const temp = barsData[0];
+        let comparedTo = 0;
+        let flag = true;
+        while (comparedTo < sortedBarsData.length){
+            addFrame({compare: [0, barsData.length + comparedTo]});
+            if (temp <= sortedBarsData[comparedTo]){
+                barsData.shift();
+                sortedBarsData.splice(comparedTo, 0, temp);
+                flag = false;
+                break;
+            }
+            else comparedTo++;
+        }
+        if (flag) sortedBarsData.push(barsData.shift());
+        addFrame({});
+    }
+
+    return {
+        animationFrames,
+        renderFrame: (frameIndex, width) => {
+            let frame = animationFrames[frameIndex];
+            let {compare} = frame;
+            return frame.arr.map((height, index) => `<div class="bar${compare.includes(index) ? ' comparing' : ''}${frameIndex == animationFrames.length-1 ? ' sorted' : ''}" style="height: ${height}px; width: ${width}px"></div>`).join("");
+        }
+    };
 }
 
 export function selectionSort(barsData) {
-    
+    let animationFrames = [];
+    let sortedBarsData = [];
+    let sortedInd = barsData.length;
+
+    function addFrame({compare = []}) {
+        animationFrames.push({
+            arr: [...barsData, ...sortedBarsData],
+            compare,
+            sortedInd: sortedInd
+        });
+    }
+
+    addFrame({});
+
+    while (barsData.length) {
+        let minIndex = barsData.reduce((minIndex, cur, ind) => {
+            addFrame({compare: [minIndex, ind]});
+            return barsData[minIndex] >= cur ? ind : minIndex}, 0);
+        sortedBarsData.push(barsData[minIndex]);
+        barsData.splice(minIndex, 1);
+        sortedInd--;
+        addFrame({});
+    }
+
+    return {
+        animationFrames,
+        renderFrame: (frameIndex, width) => {
+            let frame = animationFrames[frameIndex];
+            let {compare, sortedInd} = frame;
+            return frame.arr.map((height, index) => `<div class="bar${compare.includes(index) ? ' comparing' : ''}${index >= sortedInd ? ' sorted' : ''}" style="height: ${height}px; width: ${width}px"></div>`).join("");
+        }
+    };
 }
 
 export function bubbleSort(barsData) {
+    let animationFrames = [];
+    let sortedInd = barsData.length;
+
+    function addFrame({compare = []}) {
+        animationFrames.push({
+            arr : [...barsData],
+            compare,
+            sortedInd: sortedInd
+        });
+    }
+
+    function swap(i, j) {
+        [barsData[i], barsData[j]] = [barsData[j], barsData[i]];
+    }
+
+    addFrame({});
+
+    while (sortedInd){
+        for (let i = 0; i < sortedInd-1; i++){
+            addFrame({compare: [i, i+1]});
+            if (barsData[i] > barsData[i+1]) swap(i, i+1);
+        }
+        sortedInd--;
+        addFrame({});
+    }
     
+    return {
+        animationFrames,
+        renderFrame: (frameIndex, width) => {
+            let frame = animationFrames[frameIndex];
+            let {compare, sortedInd} = frame;
+            return frame.arr.map((height, index) => `<div class="bar${compare.includes(index) ? ' comparing' : ''}${index >= sortedInd ? ' sorted' : ''}" style="height: ${height}px; width: ${width}px"></div>`).join("");
+        }
+    };
 }
