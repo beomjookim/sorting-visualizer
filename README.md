@@ -54,7 +54,6 @@ HTML, CSS, SASS, JavaScript
 - ㅎ
 
 
-## Link to the project
+## Link to the project(https://sorting-visualizer-jayden.netlify.app)
 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/dffa3400-1422-4f50-9f40-06f1310bbe98/deploy-status)](https://app.netlify.com/sites/sorting-visualizer-jayden/deploys)
-[sorting-visualizer-jayden](https://sorting-visualizer-jayden.netlify.app)
