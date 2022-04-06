@@ -24,6 +24,9 @@ HTML, CSS, SASS, JavaScript
 1.5.0. - 반응형 기능 완성, 스크린 상에서 크기 조절에 맞게 재배치 및 최소 크기 도달 시 안내 화면으로 전환 기능  
 1.6.0. - 비교하는 두 개의 바(bar)와, 정렬이 완료된 바에 대해서 색상을 추가하여 유저의 가독성 개선  
 1.7.0. - quick sort 기능 추가  
+1.8.0. - insertion sort 기능 추가  
+1.9.0. - selection sort 기능 추가  
+1.10.0. - bubble sort 기능 추가  
 
 
 ## Optimizing
@@ -51,6 +54,6 @@ HTML, CSS, SASS, JavaScript
 - ㅎ
 
 
-## Link to the project
+## [Link to the project](https://sorting-visualizer-jayden.netlify.app)
 
-...
+[![Netlify Status](https://api.netlify.com/api/v1/badges/dffa3400-1422-4f50-9f40-06f1310bbe98/deploy-status)](https://app.netlify.com/sites/sorting-visualizer-jayden/deploys)
