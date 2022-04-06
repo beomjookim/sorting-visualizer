@@ -50,7 +50,7 @@ HTML, CSS, SASS(SCSS), JavaScript
   - 변수는 '뭔지'가 드러나게 명사형으로, 함수는 '뭐하는지'가 드러나게 동사형으로 지정.
   - 함수의 파라미터는 3개 이하로 조정.
   - 반복문은 가능한한 파이프라인으로 수정.
-  - 파라미터를 직접 수정하지 않고 임시변수를 활용함.
+  - 파라미터를 직접 수정하지 않고 임시변수를 활용.
 
 
 ## [Link to the project](https://sorting-visualizer-jayden.netlify.app)
