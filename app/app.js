@@ -3,7 +3,7 @@ import * as sorting from './sorting-algorithms.js'
 const [barsElement, sortingAlgorithms, genBtn, toggleBtn, stopBtn, arrSizeSlider, aniSpeedSlider, aniSlider] = ['.ani__animation', '.nav__algo-slt', '.nav__gen-btn', '.nav__ctrl-toggle-btn', '.nav__ctrl-stop-btn', '.nav__num-label', '.nav__speed-label', '.ani__slider'].map(e => document.querySelector(e));
 
 let ARRAY_SIZE = 30;
-let ANIMATION_TIME = 10; // 최소 5 최대 100
+let ANIMATION_TIME = 20; // 최소 5 최대 100
 const BAR_WIDTH = Math.min((window.innerWidth-250)/ARRAY_SIZE, 50);
 
 let isPlaying = false;
