@@ -139,23 +139,27 @@ export function insertionSort(barsData) {
         });
     }
 
-    while (barsData.length){
-        const temp = barsData[0];
-        let comparedTo = 0;
-        let flag = true;
-        while (comparedTo < sortedBarsData.length){
-            addFrame({compare: [0, barsData.length + comparedTo]});
-            if (temp <= sortedBarsData[comparedTo]){
-                barsData.shift();
-                sortedBarsData.splice(comparedTo, 0, temp);
-                flag = false;
-                break;
+    function insertionSort(){
+        while (barsData.length){
+            const temp = barsData[0];
+            let comparedTo = 0;
+            let flag = true;
+            while (comparedTo < sortedBarsData.length){
+                addFrame({compare: [0, barsData.length + comparedTo]});
+                if (temp <= sortedBarsData[comparedTo]){
+                    barsData.shift();
+                    sortedBarsData.splice(comparedTo, 0, temp);
+                    flag = false;
+                    break;
+                }
+                else comparedTo++;
             }
-            else comparedTo++;
+            if (flag) sortedBarsData.push(barsData.shift());
+            addFrame({});
         }
-        if (flag) sortedBarsData.push(barsData.shift());
-        addFrame({});
     }
+
+    insertionSort();
 
     return {
         animationFrames,
@@ -180,17 +184,21 @@ export function selectionSort(barsData) {
         });
     }
 
-    addFrame({});
-
-    while (barsData.length) {
-        let minIndex = barsData.reduce((minIndex, cur, ind) => {
-            addFrame({compare: [minIndex, ind]});
-            return barsData[minIndex] >= cur ? ind : minIndex}, 0);
-        sortedBarsData.push(barsData[minIndex]);
-        barsData.splice(minIndex, 1);
-        sortedInd--;
+    function selectionSort(){
         addFrame({});
+
+        while (barsData.length) {
+            let minIndex = barsData.reduce((minIndex, cur, ind) => {
+                addFrame({compare: [minIndex, ind]});
+                return barsData[minIndex] >= cur ? ind : minIndex}, 0);
+            sortedBarsData.push(barsData[minIndex]);
+            barsData.splice(minIndex, 1);
+            sortedInd--;
+            addFrame({});
+        }
     }
+
+    selectionSort();
 
     return {
         animationFrames,
@@ -218,16 +226,20 @@ export function bubbleSort(barsData) {
         [barsData[i], barsData[j]] = [barsData[j], barsData[i]];
     }
 
-    addFrame({});
-
-    while (sortedInd){
-        for (let i = 0; i < sortedInd-1; i++){
-            addFrame({compare: [i, i+1]});
-            if (barsData[i] > barsData[i+1]) swap(i, i+1);
-        }
-        sortedInd--;
+    function bubbleSort(){
         addFrame({});
+
+        while (sortedInd){
+            for (let i = 0; i < sortedInd-1; i++){
+                addFrame({compare: [i, i+1]});
+                if (barsData[i] > barsData[i+1]) swap(i, i+1);
+            }
+            sortedInd--;
+            addFrame({});
+        }
     }
+
+    bubbleSort();
     
     return {
         animationFrames,
