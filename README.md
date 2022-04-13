@@ -31,7 +31,7 @@ HTML, CSS, SASS(SCSS), JavaScript
 
 ## Optimizing
 
-- 새로운 정렬이 만들어질 때마다 내부에서 sorting을 진행하는 기존의 코드를 play 버튼이 직접 눌렸을 때만 sorting을 하는 것으로 수정, 시간 효율성 증대. 한 사이즈 값에서 다른 사이즈 값으로 옮겨갈 때, 기존 코드는 약 25ms가 들었는데 현재 코드는 이를 9ms로 단축, <strong>약 64% 단축함</strong>. 슬라이더 작동 방식의 특성상 기존 값에서 옮겨갈 값 사이에 위치한 모든 값에 대해 이렇게 효율화 되었으므로, 물리적인 시간은 더욱 극단적으로 효율화 됨.  
+- 새로운 정렬이 만들어질 때마다 내부에서 sorting을 진행하는 기존의 코드를 play 버튼이 직접 눌렸을 때만 sorting을 하는 것으로 수정, 시간 효율성 증대. 한 사이즈 값에서 다른 사이즈 값으로 옮겨갈 때, 기존 코드는 약 25ms가 들었는데 현재 코드는 이를 9ms로 단축, <strong>약 64% 단축함</strong>. 슬라이더 작동 방식의 특성상 기존 값에서 옮겨갈 값 사이에 위치한 모든 값에 대해 이렇게 효율화 되었으므로, 물리적인 시간은 더욱 극단적으로 효율화 됨. 아래는 개발자 도구 - 퍼포먼스 탭에서 성능 측정한 후 비교한 사진.  
   ### before: 약 25ms 소요
   <img src="https://user-images.githubusercontent.com/29809668/161408302-bd771fea-1385-403a-af44-2e4e5dda0946.png" width="500"/>
   
@@ -51,6 +51,27 @@ HTML, CSS, SASS(SCSS), JavaScript
   - 함수의 파라미터는 3개 이하로 조정.
   - 반복문은 가능한한 파이프라인으로 수정.
   - 파라미터를 직접 수정하지 않고 임시변수를 활용.
+
+
+## Screenshots
+
+![screenshot](https://user-images.githubusercontent.com/29809668/163200027-bca322bf-0f86-4e5f-af3e-f1385d7ae0cd.png)
+
+1. Generate Bars 버튼: 랜덤한 높이의 바들을 정해진 개수만큼 만듭니다.
+2. # of Bars 슬라이더: 바의 개수를 조정합니다.
+3. Sorting Speed 슬라이더: 정렬 애니메이션의 속도를 조절합니다.
+4. Algorithm Select 폼: 어떤 정렬 알고리즘을 시전할지 정합니다.
+5. PLAY(PAUSE) 버튼: 애니메이션을 재생합니다. 이후 일시정지 기능으로 바뀝니다.
+6. STOP 버튼: 애니메이션을 멈추고 초기화시킵니다.
+7. 애니메이션 렌더링 화면: 정렬하는 과정을 애니메이션으로 렌더링합니다. 색깔은 변합니다.
+
+![screenshot(inplay)](https://user-images.githubusercontent.com/29809668/163201244-cdef7cb2-0c33-410d-8605-2c5c4ff936cf.png)
+
+색깔:
+  - 연두색: 기본 바
+  - 분홍색: 비교 중인 두 개의 바
+  - 하늘색: 정렬 완료된 바
+  - 주황색: 퀵 소트에서의 
 
 
 ## [Link to the project](https://sorting-visualizer-jayden.netlify.app)
