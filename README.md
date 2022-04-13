@@ -55,7 +55,8 @@ HTML, CSS, SASS(SCSS), JavaScript
 
 ## Screenshots
 
-![screenshot](https://user-images.githubusercontent.com/29809668/163200027-bca322bf-0f86-4e5f-af3e-f1385d7ae0cd.png)
+![screenshot]()
+<img src="https://user-images.githubusercontent.com/29809668/163200027-bca322bf-0f86-4e5f-af3e-f1385d7ae0cd.png" width="1000"/>
 
 1. Generate Bars 버튼: 랜덤한 높이의 바들을 정해진 개수만큼 만듭니다.
 2. # of Bars 슬라이더: 바의 개수를 조정합니다.
@@ -65,9 +66,9 @@ HTML, CSS, SASS(SCSS), JavaScript
 6. STOP 버튼: 애니메이션을 멈추고 초기화시킵니다.
 7. 애니메이션 렌더링 화면: 정렬하는 과정을 애니메이션으로 렌더링합니다. 색깔은 변합니다.
 
-![screenshot(inplay)](https://user-images.githubusercontent.com/29809668/163201244-cdef7cb2-0c33-410d-8605-2c5c4ff936cf.png)
+<img src="https://user-images.githubusercontent.com/29809668/163201244-cdef7cb2-0c33-410d-8605-2c5c4ff936cf.png" width="1000"/>
 
-색깔:
+색깔 범례:
   - 연두색: 기본 바
   - 분홍색: 비교 중인 두 개의 바
   - 하늘색: 정렬 완료된 바
