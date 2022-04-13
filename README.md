@@ -58,7 +58,7 @@ HTML, CSS, SASS(SCSS), JavaScript
 <img src="https://user-images.githubusercontent.com/29809668/163200027-bca322bf-0f86-4e5f-af3e-f1385d7ae0cd.png" width="700"/>
 
 1. Generate Bars 버튼: 랜덤한 높이의 바들을 정해진 개수만큼 만듭니다.
-2. # of Bars 슬라이더: 바의 개수를 조정합니다.
+2. '# of Bars' 슬라이더: 바의 개수를 조정합니다.
 3. Sorting Speed 슬라이더: 정렬 애니메이션의 속도를 조절합니다.
 4. Algorithm Select 폼: 어떤 정렬 알고리즘을 시전할지 정합니다.
 5. PLAY(PAUSE) 버튼: 애니메이션을 재생합니다. 이후 일시정지 기능으로 바뀝니다.
