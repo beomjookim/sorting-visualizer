@@ -7,7 +7,7 @@
 
 ## Skills used
 
-HTML, CSS, SASS, JavaScript
+HTML, CSS, SASS(SCSS), JavaScript
 
 
 ## Timeline
@@ -36,22 +36,21 @@ HTML, CSS, SASS, JavaScript
   <img src="https://user-images.githubusercontent.com/29809668/161408302-bd771fea-1385-403a-af44-2e4e5dda0946.png" width="500"/>
   
   ### after: 약 9ms 소요
-  <img src="https://user-images.githubusercontent.com/29809668/161408306-552d0503-c2e5-4b00-8257-aaca133aa0a9.png" width="300"/>
-
-- 
+  <img src="https://user-images.githubusercontent.com/29809668/161408306-552d0503-c2e5-4b00-8257-aaca133aa0a9.png" width="300"/>  
 
 
 ## Refactoring
 
 코드를 처음 짤 때부터 ES6 문법에 맞게 짰습니다.  
-기능 구현 이후 본격적으로 '마틴 파울러'의 '리팩터링 2판'을 참고하여 코드 전체 리팩터링 진행했습니다.  
+기능 구현 이후 본격적으로 '마틴 파울러'의 '리팩터링 2판'을 참고하여 아래와 같이 JS 코드 전체 리팩터링 진행했습니다.  
 
-- ㅁ
-- ㅇ
-- ㅇ
-- ㄷ
-- ㄹ
-- ㅎ
+- CSS: 네이밍을 BEM 방식으로 수정.
+- JavaScript:
+  - 변수, 함수 중 중복되는 등의 통합이 필요한 경우 추출 및 통합.
+  - 변수는 '뭔지'가 드러나게 명사형으로, 함수는 '뭐하는지'가 드러나게 동사형으로 지정.
+  - 함수의 파라미터는 3개 이하로 조정.
+  - 반복문은 가능한한 파이프라인으로 수정.
+  - 파라미터를 직접 수정하지 않고 임시변수를 활용.
 
 
 ## [Link to the project](https://sorting-visualizer-jayden.netlify.app)
