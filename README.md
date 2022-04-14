@@ -72,7 +72,7 @@ HTML, CSS, SASS(SCSS), JavaScript
   - 연두색: 기본 바
   - 분홍색: 비교 중인 두 개의 바
   - 하늘색: 정렬 완료된 바
-  - 주황색: 퀵 소트에서의 
+  - 주황색: 퀵 소트에서의 피봇 바
 
 
 ## [Link to the project](https://sorting-visualizer-jayden.netlify.app)
